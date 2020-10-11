@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-blog-app"
+    }
+  },
+  "defaultProject": "angular-blog-app",
+  "cli": {
+    "analytics": false
+  }
 }
