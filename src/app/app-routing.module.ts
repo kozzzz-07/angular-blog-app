@@ -6,6 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: MainNavComponent,
+    children: [
+      { path: '', redirectTo: '/list', pathMatch: 'full' },
+      {
+        path: 'list',
+        loadChildren: () =>
+          import('./feature-modules/blog/blog.module').then(
+            (m) => m.BlogModule
+          ),
+      },
+    ],
   },
 ];
 
