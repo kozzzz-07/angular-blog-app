@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-presentation-list-item',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-item.presentation.scss'],
 })
 export class ListItemPresentationComponent implements OnInit {
+  @Input() title!: string;
+  @Input() date!: Date;
+  @Input() excerpt!: string;
+
   constructor() {}
 
   ngOnInit(): void {}
