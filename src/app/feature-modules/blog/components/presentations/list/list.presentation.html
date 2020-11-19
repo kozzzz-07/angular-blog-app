@@ -1,1 +1,8 @@
-<app-presentation-list-item></app-presentation-list-item>
+<ng-container *ngIf="articles$ | async as articles">
+
+  <ng-container *ngFor="let article of articles">
+    <app-presentation-list-item [title]="article.title" [excerpt]="article.eexcerpt"
+      [date]="article.updateAt || article.createAt"></app-presentation-list-item>
+  </ng-container>
+
+</ng-container>
