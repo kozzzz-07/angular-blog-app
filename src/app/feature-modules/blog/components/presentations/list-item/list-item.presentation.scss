@@ -1,5 +1,4 @@
-// Partsが使えない現状において、消えゆく運命のdeepを使用
-.card ::ng-deep .card {
+.card::part(card) {
   margin: 20px 15px 0;
 }
 
