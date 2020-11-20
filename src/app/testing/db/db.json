@@ -1,3 +1,8 @@
 {
-  "articles": []
+  "articles": [{
+    "id": 1,
+    "title": "test",
+    "body": "test\ntest",
+    "excerpt": "test"
+  }]
 }
