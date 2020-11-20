@@ -4,7 +4,6 @@
   margin: 20px 15px 0;
 }
 
-// 見た目は共通なので、使い回せないか?
 .header {
   display: flex;
   justify-content: space-between;
@@ -38,17 +37,4 @@
 .footer {
   margin-top: 1rem;
   text-align: right;
-}
-
-.button {
-  background-color: #4527A0;
-  color: #FFF;
-  border: none;
-  height: 2.06rem;
-  min-width: 10em;
-  border-radius: 5px;
-}
-
-.button:hover {
-  opacity: 0.7;
 }
