@@ -1,3 +1,5 @@
+@import '../../../color-thema.scss';
+
 .container {
   display: flex;
   word-wrap: break-word;
@@ -5,7 +7,7 @@
 
 .side {
   width: 200px;
-  background-color: #4527A0;
+  background-color: $paple;
   text-align: center;
 }
 
@@ -22,6 +24,6 @@
 
 .appName {
   font-size: 1.5rem;
-  color: #FFF;
+  color: $white;
   font-weight: bold;
 }
