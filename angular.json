@@ -130,6 +130,7 @@
   },
   "defaultProject": "angular-blog-app",
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "defaultCollection": "@ngrx/schematics"
   }
 }
