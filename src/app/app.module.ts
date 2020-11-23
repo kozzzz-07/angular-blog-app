@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
+      name: 'Angular Blog App',
       maxAge: 25,
       logOnly: environment.production,
     }),
