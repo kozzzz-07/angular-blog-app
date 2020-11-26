@@ -8,12 +8,14 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     SharedModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
@@ -23,7 +25,7 @@ import { environment } from '../environments/environment';
       logOnly: environment.production,
     }),
   ],
-  providers: [],
+  providers: [{ provide: 'API_URL', useValue: environment.apiUrl }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

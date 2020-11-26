@@ -1,15 +1,14 @@
 import { createAction, props } from '@ngrx/store';
+import { Article } from '../../models/blog.model';
 
-export const loadBlogs = createAction(
-  '[Blog] Load Blogs'
+export const loadArticles = createAction('[Blog] Load Articles');
+
+export const loadSuccess = createAction(
+  '[Blog] Load Success',
+  props<{ articles: Article[] }>()
 );
 
-export const loadBlogsSuccess = createAction(
-  '[Blog] Load Blogs Success',
-  props<{ data: any }>()
-);
-
-export const loadBlogsFailure = createAction(
-  '[Blog] Load Blogs Failure',
-  props<{ error: any }>()
+export const loadFailure = createAction(
+  '[Blog] Load Failure',
+  props<{ error: string }>()
 );

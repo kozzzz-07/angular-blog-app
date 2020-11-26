@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Article } from '../../../models/blog.model';
 
@@ -8,15 +8,9 @@ import { Article } from '../../../models/blog.model';
   styleUrls: ['./list.presentation.scss'],
 })
 export class ListPresentationComponent implements OnInit {
-  articles$!: Observable<Article[]>;
+  @Input() articles: Article[] = [];
 
-  constructor() {
-    // mock
-    this.articles$ = of([
-      { id: 'a', title: 'a', eexcerpt: 'a', createAt: new Date() },
-      { id: 'b', title: 'b', eexcerpt: 'bbbbbbb', createAt: new Date() },
-    ]);
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }

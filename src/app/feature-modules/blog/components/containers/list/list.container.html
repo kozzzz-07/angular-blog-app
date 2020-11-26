@@ -1,1 +1,3 @@
-<app-presentation-list></app-presentation-list>
+<ng-container *ngIf="articles$ | async as articles">
+  <app-presentation-list [articles]="articles"></app-presentation-list>
+</ng-container>

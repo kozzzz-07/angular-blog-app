@@ -1,7 +1,7 @@
 import * as fromBlog from './blog.actions';
 
-describe('loadBlogs', () => {
+describe('loadArticles', () => {
   it('should return an action', () => {
-    expect(fromBlog.loadBlogs().type).toBe('[Blog] Load Blogs');
+    expect(fromBlog.loadArticles().type).toBe('[Blog] Load');
   });
 });

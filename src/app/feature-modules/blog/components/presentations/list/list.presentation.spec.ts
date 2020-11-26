@@ -22,3 +22,8 @@ describe('ListPresentationComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+// this.articles$ = of([
+//   { id: 'a', title: 'a', eexcerpt: 'a', createAt: new Date() },
+//   { id: 'b', title: 'b', eexcerpt: 'bbbbbbb', createAt: new Date() },
+// ]);

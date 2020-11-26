@@ -15,7 +15,7 @@ import { BlogEffects } from './effects/blog.effects';
       fromBlogState.reducers,
       { metaReducers: fromBlogState.metaReducers }
     ),
-    StoreModule.forFeature(fromBlog.blogFeatureKey, fromBlog.reducer),
+    // StoreModule.forFeature(fromBlog.blogFeatureKey, fromBlog.blogReducer),
     EffectsModule.forFeature([BlogEffects]),
   ],
 })
