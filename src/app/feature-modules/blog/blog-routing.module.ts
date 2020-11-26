@@ -3,10 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'list',
     pathMatch: 'full',
     loadChildren: () =>
       import('./components/pages/list/list.module').then((m) => m.ListModule),
+  },
+  {
+    path: 'new',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./components/pages/new/new.module').then((m) => m.NewModule),
   },
   {
     path: ':id',
@@ -15,12 +21,6 @@ const routes: Routes = [
       import('./components/pages/detail/detail.module').then(
         (m) => m.DetailModule
       ),
-  },
-  {
-    path: 'new',
-    pathMatch: 'full',
-    loadChildren: () =>
-      import('./components/pages/new/new.module').then((m) => m.NewModule),
   },
   // TODO:edit
 ];

@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/list', pathMatch: 'full' },
       {
-        path: 'list',
+        path: '',
         loadChildren: () =>
           import('./feature-modules/blog/blog.module').then(
             (m) => m.BlogModule
