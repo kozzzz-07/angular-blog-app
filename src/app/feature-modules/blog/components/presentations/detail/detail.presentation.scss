@@ -1,0 +1,30 @@
+@import '../../../../../../color-thema.scss';
+
+.card::part(card) {
+  margin: 20px 15px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 20px;
+  }
+
+  .date {
+    color: #03A9F4;
+    font-weight: bold;
+  }
+}
+
+.body {
+  margin-top: 2rem;
+  color: #666;
+}
