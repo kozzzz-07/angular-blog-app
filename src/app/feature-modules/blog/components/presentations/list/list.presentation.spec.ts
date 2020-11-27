@@ -24,6 +24,6 @@ describe('ListPresentationComponent', () => {
 });
 
 // this.articles$ = of([
-//   { id: 'a', title: 'a', eexcerpt: 'a', createAt: new Date() },
-//   { id: 'b', title: 'b', eexcerpt: 'bbbbbbb', createAt: new Date() },
+//   { id: 'a', title: 'a', excerpt: 'a', createAt: new Date() },
+//   { id: 'b', title: 'b', excerpt: 'bbbbbbb', createAt: new Date() },
 // ]);

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BlogDate } from '../../../models/blog.model';
 
 @Component({
   selector: 'app-presentation-list-item',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListItemPresentationComponent implements OnInit {
   @Input() title!: string;
-  @Input() date!: Date;
+  @Input() date!: BlogDate;
   @Input() excerpt!: string;
 
   constructor() {}
