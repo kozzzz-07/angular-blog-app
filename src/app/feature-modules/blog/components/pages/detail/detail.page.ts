@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPageComponent implements OnInit {
-  constructor() {}
+  id = this.route.snapshot.paramMap.get('id');
+
+  constructor(private readonly route: ActivatedRoute) {}
 
   ngOnInit(): void {}
 }

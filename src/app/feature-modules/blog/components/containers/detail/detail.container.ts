@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { Article } from '../../../models/blog.model';
+import { setCurrentArticle } from '../../../state/actions/blog.actions';
+import { State } from '../../../state/reducers';
+import { getCurrentArticle } from '../../../state/selectors/blog.selectors';
 
 @Component({
   selector: 'app-container-detail',
@@ -8,13 +12,13 @@ import { Article } from '../../../models/blog.model';
   styleUrls: ['./detail.container.scss'],
 })
 export class DetailContainerComponent implements OnInit {
-  article$!: Observable<Article>;
+  @Input() articleId!: string;
 
-  constructor() {}
+  selectedArticle$ = this.store.select(getCurrentArticle);
+
+  constructor(private readonly store: Store<State>) {}
 
   ngOnInit(): void {
-    this.article$ = of(
-      { id: 'b', title: 'b', body: 'bbbbbbb', excerpt: 'bbb' , createAt: new Date() },
-    );
+    this.store.dispatch(setCurrentArticle({currentArticleId: this.articleId}));
   }
 }

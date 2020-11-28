@@ -12,3 +12,8 @@ export const loadFailure = createAction(
   '[Blog] Load Failure',
   props<{ error: string }>()
 );
+
+export const setCurrentArticle = createAction(
+  '[Blog] Set Current Article',
+  props<{ currentArticleId: string }>()
+);

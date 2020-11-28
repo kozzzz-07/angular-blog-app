@@ -5,13 +5,13 @@ import * as BlogActions from '../actions/blog.actions';
 export const blogFeatureKey = 'blog';
 
 export interface State {
-  currentBlogId: ArticleID | null;
+  currentArticleId: ArticleID | null;
   articles: Article[];
   error: string;
 }
 
 export const initialState: State = {
-  currentBlogId: null,
+  currentArticleId: null,
   articles: [],
   error: '',
 };
@@ -29,6 +29,12 @@ export const blogReducer = createReducer<State>(
     return {
       ...state,
       error: action.error,
+    };
+  }),
+  on(BlogActions.setCurrentArticle, (state, action) => {
+    return {
+      ...state,
+      currentArticleId: action.currentArticleId
     };
   })
 );

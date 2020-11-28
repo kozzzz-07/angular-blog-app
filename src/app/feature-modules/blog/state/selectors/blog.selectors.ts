@@ -15,3 +15,16 @@ export const getArticles = createSelector(
   getBlogEntitiesState,
   (state) => state.articles
 );
+
+export const getCurrentArticleId = createSelector(
+  getBlogEntitiesState,
+  (state) => state.currentArticleId
+);
+
+export const getCurrentArticle = createSelector(
+  getBlogEntitiesState,
+  getCurrentArticleId,
+  (state, currentArticleId) => {
+    return currentArticleId ? state.articles.find(article => article.id === currentArticleId) : null;
+  }
+);

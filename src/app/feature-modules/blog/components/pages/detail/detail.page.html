@@ -1,1 +1,4 @@
-<app-container-detail></app-container-detail>
+<ng-container *ngIf="id" >
+  <app-container-detail [articleId]="id"></app-container-detail>
+</ng-container>
+
