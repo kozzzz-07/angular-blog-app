@@ -1,5 +1,25 @@
 @import '../../../../../../color-thema.scss';
 
+.operations {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 10px 10px 10px; // 一旦
+}
+
+.button {
+  background-color: #4527A0;
+  color: #FFF;
+  border: none;
+  height: 2.06rem;
+  min-width: 10em;
+  border-radius: 5px;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
 .card::part(card) {
   margin: 20px 15px 0;
 }

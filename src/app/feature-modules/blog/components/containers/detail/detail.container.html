@@ -1,4 +1,9 @@
 <ng-container *ngIf="selectedArticle$ | async as article">
-  <app-presentation-detail [title]="article.title" [date]="article.updateAt || article.createAt" [body]="article.body">
+  <app-presentation-detail
+    [title]="article.title"
+    [date]="article.updateAt || article.createAt"
+    [body]="article.body"
+    (back)="onBack()"
+  >
   </app-presentation-detail>
 </ng-container>

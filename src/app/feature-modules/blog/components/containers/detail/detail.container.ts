@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { Article } from '../../../models/blog.model';
@@ -16,9 +17,18 @@ export class DetailContainerComponent implements OnInit {
 
   selectedArticle$ = this.store.select(getCurrentArticle);
 
-  constructor(private readonly store: Store<State>) {}
+  constructor(
+    private readonly store: Store<State>,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(setCurrentArticle({currentArticleId: this.articleId}));
+    this.store.dispatch(
+      setCurrentArticle({ currentArticleId: this.articleId })
+    );
+  }
+
+  onBack(): void {
+    this.router.navigate(['/list']);
   }
 }

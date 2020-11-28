@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { BlogDate } from '../../../models/blog.model';
 
 @Component({
@@ -10,6 +10,7 @@ export class DetailPresentationComponent implements OnInit {
   @Input() title!: string;
   @Input() date!: BlogDate;
   @Input() body!: string;
+  @Output() back = new EventEmitter<void>();
 
   constructor() {}
 

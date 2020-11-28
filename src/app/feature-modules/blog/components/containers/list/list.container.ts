@@ -15,7 +15,10 @@ import { Router } from '@angular/router';
 export class ListContainerComponent implements OnInit {
   articles$ = this.store.select(getArticles);
 
-  constructor(private readonly store: Store<State>, private readonly router: Router) {}
+  constructor(
+    private readonly store: Store<State>,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
     // TODO: Facadeを用意する
