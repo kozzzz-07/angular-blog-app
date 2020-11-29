@@ -1,6 +1,6 @@
 <ng-container *ngFor="let article of articles">
   <app-presentation-list-item [title]="article.title" [excerpt]="article.excerpt"
     [date]="article.updateAt || article.createAt">
-    <button class="button" (click)="readMore.emit(article.id)">続きを読む</button>
+    <app-button thema="primary" (click)="readMore.emit(article.id)">続きを読む</app-button>
   </app-presentation-list-item>
 </ng-container>
