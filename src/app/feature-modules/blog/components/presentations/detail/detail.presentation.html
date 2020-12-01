@@ -1,0 +1,12 @@
+<div class="operations">
+  <app-button thema="primary" (click)="back.emit()">戻る</app-button>
+</div>
+<app-card class="card">
+  <div class="header">
+    <span class="title">{{title}}</span>
+    <span class="date">{{date | date:"yyyy/MM/dd"}}</span>
+  </div>
+  <div class="body">
+    {{body}}
+  </div>
+</app-card>
