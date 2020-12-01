@@ -1,6 +1,6 @@
 export type ArticleID = string;
 
-export type Article = {
+export interface Article {
   id: ArticleID;
   title: string;
   body: string;
@@ -11,3 +11,5 @@ export type Article = {
 };
 
 export type BlogDate = Date | string;
+
+export type ArticleRequest = Partial<Pick<Article, 'title' | 'body' | 'createAt'>>;

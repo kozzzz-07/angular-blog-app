@@ -1,4 +1,4 @@
-import { ArticleID } from './../models/blog.model';
+import { ArticleID, ArticleRequest } from './../models/blog.model';
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -25,4 +25,14 @@ export class BlogService {
       .get<Article>(`${this.url}/articles/${id}`)
       .pipe(tap((data) => console.log(JSON.stringify(data))));
   }
+
+  postArticle(article: ArticleRequest): Observable<Article> {
+    return this.http
+      .post<Article>(`${this.url}/articles/`, article)
+      .pipe(tap((data) => console.log(JSON.stringify(data))));
+  }
+
+  // update
+
+  // delete
 }

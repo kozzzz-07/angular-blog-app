@@ -1,6 +1,5 @@
 import { BlogState, blogStateFeatureKey, State } from './../reducers/index';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { blogFeatureKey } from '../reducers/blog.reducer';
 
 const getBlogFeatureState = createFeatureSelector<State, BlogState>(
   blogStateFeatureKey

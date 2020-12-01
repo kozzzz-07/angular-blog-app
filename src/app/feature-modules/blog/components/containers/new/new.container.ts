@@ -1,4 +1,9 @@
+import { ArticleRequest } from './../../../models/blog.model';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { State } from '../../../state/reducers';
+import * as fromBlogActions from '../../../state/actions/blog.actions';
 
 @Component({
   selector: 'app-container-new',
@@ -7,9 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly store: Store<State>, private readonly router: Router) { }
 
   ngOnInit(): void {
   }
 
+  onBack(): void {
+    this.router.navigate(['/list']);
+  }
+
+  onPost(articleRequest: ArticleRequest): void {
+    this.store.dispatch(fromBlogActions.postArticle({articleRequest}));
+  }
 }

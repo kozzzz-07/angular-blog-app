@@ -17,7 +17,7 @@ export class ListContainerComponent implements OnInit {
 
   constructor(
     private readonly store: Store<State>,
-    private readonly router: Router
+    private readonly router: Router // TODO: pageに移動する
   ) {}
 
   ngOnInit(): void {

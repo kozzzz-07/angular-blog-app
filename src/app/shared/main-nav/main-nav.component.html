@@ -1,9 +1,10 @@
 <div class="container">
   <div class="side">
     <div class="ly_box">
+      <!-- MEMO: app-sharedにBlogの機能が入ってるの微妙な気がする feature-module/blogに閉じ込めたいきもち -->
       <div class="appName">BlogApp</div>
       <div class="new-button">
-        <app-button thema="inversion">新規投稿</app-button>
+        <app-button thema="inversion" [routerLink]="['/new']">新規投稿</app-button>
       </div>
     </div>
   </div>
