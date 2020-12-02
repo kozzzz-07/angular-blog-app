@@ -8,7 +8,7 @@ export interface Article {
   createAt: BlogDate;
   updateAt?: BlogDate;
   deleteAt?: BlogDate;
-};
+}
 
 export type BlogDate = Date | string;
 
