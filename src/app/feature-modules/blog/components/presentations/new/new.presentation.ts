@@ -21,6 +21,7 @@ export class NewPresentationComponent implements OnInit {
     const params: ArticleRequest = {
       title: this.title,
       body: this.body,
+      excerpt: this.body.length < 250 ? this.body : this.body.slice(250) ,
       createAt: new Date().toISOString(), // バック側でやるもんだけど、勉強用アプリなので
     };
     this.post.emit(params);

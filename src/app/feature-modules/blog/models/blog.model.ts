@@ -12,4 +12,4 @@ export interface Article {
 
 export type BlogDate = Date | string;
 
-export type ArticleRequest = Partial<Pick<Article, 'title' | 'body' | 'createAt'>>;
+export type ArticleRequest = Partial<Pick<Article, 'title' | 'body' | 'excerpt' | 'createAt'>>;
