@@ -29,8 +29,12 @@
 
   .excerpt {
     color: #666;
+
+    // 複数行のellipsis
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     overflow: hidden;
-    max-height: 4rem;
   }
 }
 
