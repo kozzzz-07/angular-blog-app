@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { Article } from '../../../models/blog.model';
-import { setCurrentArticle } from '../../../state/actions/blog.actions';
+import { setCurrentArticle } from '../../../state/actions/blog.actions-page';
 import { State } from '../../../state/reducers';
 import { getCurrentArticle } from '../../../state/selectors/blog.selectors';
 

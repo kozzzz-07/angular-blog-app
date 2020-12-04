@@ -3,7 +3,7 @@ import { getArticles } from './../../../state/selectors/blog.selectors';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../../state/reducers';
-import * as fromBlogActions from '../../../state/actions/blog.actions';
+import * as fromBlogActions from '../../../state/actions/blog.actions-page';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 

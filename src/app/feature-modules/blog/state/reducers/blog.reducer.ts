@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { ArticleID, Article } from '../../models/blog.model';
-import * as BlogActions from '../actions/blog.actions';
+import * as BlogApiActions from '../actions/blog.actions-api';
+import * as BlogPageActions from '../actions/blog.actions-page';
 
 export const blogFeatureKey = 'blog';
 
@@ -18,33 +19,33 @@ export const initialState: State = {
 
 export const blogReducer = createReducer<State>(
   initialState,
-  on(BlogActions.loadSuccess, (state, action) => {
+  on(BlogApiActions.loadSuccess, (state, action) => {
     return {
       ...state,
       articles: action.articles,
       error: '',
     };
   }),
-  on(BlogActions.loadFailure, (state, action) => {
+  on(BlogApiActions.loadFailure, (state, action) => {
     return {
       ...state,
       error: action.error,
     };
   }),
-  on(BlogActions.setCurrentArticle, (state, action) => {
+  on(BlogPageActions.setCurrentArticle, (state, action) => {
     return {
       ...state,
       currentArticleId: action.currentArticleId,
     };
   }),
-  on(BlogActions.postArticleSuccess, (state, action) => {
+  on(BlogApiActions.postArticleSuccess, (state, action) => {
     return {
       article: action.article,
       ...state,
       error: '',
     };
   }),
-  on(BlogActions.postArticleFailure, (state, action) => {
+  on(BlogApiActions.postArticleFailure, (state, action) => {
     return {
       ...state,
       error: action.error,

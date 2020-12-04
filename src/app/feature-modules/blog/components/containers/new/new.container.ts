@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { State } from '../../../state/reducers';
-import * as fromBlogActions from '../../../state/actions/blog.actions';
+import * as fromBlogActions from '../../../state/actions/blog.actions-page';
 
 @Component({
   selector: 'app-container-new',

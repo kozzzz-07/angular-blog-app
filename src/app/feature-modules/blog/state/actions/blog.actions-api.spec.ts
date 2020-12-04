@@ -1,4 +1,4 @@
-import * as fromBlog from './blog.actions';
+import * as fromBlog from './blog.actions-page';
 
 describe('loadArticles', () => {
   it('should return an action', () => {

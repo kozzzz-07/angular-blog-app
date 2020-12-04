@@ -1,4 +1,3 @@
-import { ArticleRequest } from './../../models/blog.model';
 import { createAction, props } from '@ngrx/store';
 import { Article } from '../../models/blog.model';
 
@@ -13,13 +12,6 @@ export const loadFailure = createAction(
   '[Blog API] Load Failure',
   props<{ error: string }>()
 );
-
-export const setCurrentArticle = createAction(
-  '[Blog Page] Set Current Article',
-  props<{ currentArticleId: string }>()
-);
-
-export const postArticle = createAction('[Blog Page] Post Article', props<{ articleRequest: ArticleRequest }>());
 
 export const postArticleSuccess = createAction(
   '[Blog API] Post Article Success',

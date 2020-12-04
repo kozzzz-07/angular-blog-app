@@ -4,7 +4,8 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { mergeMap, map, catchError, concatMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-import * as BlogActions from '../actions/blog.actions';
+import * as BlogApiActions from '../actions/blog.actions-api';
+import * as BlogPageActions from '../actions/blog.actions-page';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -17,11 +18,11 @@ export class BlogEffects {
 
   loadArticles$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(BlogActions.loadArticles),
+      ofType(BlogApiActions.loadArticles),
       mergeMap(() =>
         this.blogService.getArticles().pipe(
-          map((articles) => BlogActions.loadSuccess({ articles })),
-          catchError((error) => of(BlogActions.loadFailure({ error })))
+          map((articles) => BlogApiActions.loadSuccess({ articles })),
+          catchError((error) => of(BlogApiActions.loadFailure({ error })))
         )
       )
     )
@@ -29,12 +30,12 @@ export class BlogEffects {
 
   postArticle$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(BlogActions.postArticle),
+      ofType(BlogPageActions.postArticle),
       concatMap((action) =>
         this.blogService.postArticle(action.articleRequest).pipe(
-          map((article) => BlogActions.postArticleSuccess({ article })),
+          map((article) => BlogApiActions.postArticleSuccess({ article })),
           tap(() => this.router.navigate(['list'])),
-          catchError((error) => of(BlogActions.loadFailure({ error })))
+          catchError((error) => of(BlogApiActions.loadFailure({ error })))
         )
       ),
     ),
