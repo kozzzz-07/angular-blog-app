@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { State } from '../../../state/reducers';
 import * as fromBlogActions from '../../../state/actions/blog.actions';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-container-list',
@@ -13,7 +14,16 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListContainerComponent implements OnInit {
-  articles$ = this.store.select(getArticles);
+  articles$ = this.store.select(getArticles).pipe(
+    // 降順
+    map((articles) =>
+      [...articles].sort((a, b) => {
+        const dateA = new Date(a.updateAt || a.createAt);
+        const dateB = new Date(b.updateAt || b.createAt);
+        return dateB.getTime() - dateA.getTime();
+      })
+    )
+  );
 
   constructor(
     private readonly store: Store<State>,
