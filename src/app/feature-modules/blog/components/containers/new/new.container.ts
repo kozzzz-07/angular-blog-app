@@ -1,27 +1,27 @@
+import { TodoFacade } from './../../../state/facades/blog.facade';
 import { ArticleRequest } from './../../../models/blog.model';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { State } from '../../../state/reducers';
-import * as fromBlogActions from '../../../state/actions/blog.actions-page';
 
 @Component({
   selector: 'app-container-new',
   templateUrl: './new.container.html',
-  styleUrls: ['./new.container.scss']
+  styleUrls: ['./new.container.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewContainerComponent implements OnInit {
+  constructor(
+    private readonly router: Router,
+    private readonly facade: TodoFacade
+  ) {}
 
-  constructor(private readonly store: Store<State>, private readonly router: Router) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onBack(): void {
     this.router.navigate(['/list']);
   }
 
   onPost(articleRequest: ArticleRequest): void {
-    this.store.dispatch(fromBlogActions.postArticle({articleRequest}));
+    this.facade.postArticle(articleRequest);
   }
 }

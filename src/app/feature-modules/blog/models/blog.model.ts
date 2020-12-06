@@ -12,4 +12,5 @@ export interface Article {
 
 export type BlogDate = Date | string;
 
+// TODO: DTOは別に＆名前をわかりやすくする
 export type ArticleRequest = Partial<Pick<Article, 'title' | 'body' | 'excerpt' | 'createAt'>>;
