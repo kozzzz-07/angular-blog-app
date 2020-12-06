@@ -6,7 +6,7 @@
 `npm satrt`
 
 - test用dbサーバー起動  
-`dev-db-serve`
+`npm run dev-db-serve`
 
 ## 目的
 - NgRxのお勉強
