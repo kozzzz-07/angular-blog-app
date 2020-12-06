@@ -1,31 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { Article } from '../../../models/blog.model';
-import { setCurrentArticle } from '../../../state/actions/blog.actions';
-import { State } from '../../../state/reducers';
-import { getCurrentArticle } from '../../../state/selectors/blog.selectors';
+import { TodoFacade } from '../../../state/facades/blog.facade';
 
 @Component({
   selector: 'app-container-detail',
   templateUrl: './detail.container.html',
   styleUrls: ['./detail.container.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailContainerComponent implements OnInit {
   @Input() articleId!: string;
 
-  selectedArticle$ = this.store.select(getCurrentArticle);
+  selectedArticle$ = this.facade.selectedArticle$;
 
   constructor(
-    private readonly store: Store<State>,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly facade: TodoFacade,
   ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(
-      setCurrentArticle({ currentArticleId: this.articleId })
-    );
+    this.facade.setCurrentArticle(this.articleId);
   }
 
   onBack(): void {

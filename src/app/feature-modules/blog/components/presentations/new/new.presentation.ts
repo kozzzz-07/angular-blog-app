@@ -1,10 +1,12 @@
 import { ArticleRequest } from './../../../models/blog.model';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NewPresenter } from './new.presenter';
 
 @Component({
   selector: 'app-presentation-new',
   templateUrl: './new.presentation.html',
   styleUrls: ['./new.presentation.scss'],
+  providers: [NewPresenter],
 })
 export class NewPresentationComponent implements OnInit {
   @Output() back = new EventEmitter<void>();
@@ -13,17 +15,15 @@ export class NewPresentationComponent implements OnInit {
   title = '';
   body = '';
 
-  constructor() {}
+  constructor(private readonly presenter: NewPresenter) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.presenter.post$.subscribe((articleRequest) => {
+      this.post.emit(articleRequest);
+    });
+  }
 
   onPost(): void {
-    const params: ArticleRequest = {
-      title: this.title,
-      body: this.body,
-      excerpt: this.body.length < 250 ? this.body : this.body.slice(250) ,
-      createAt: new Date().toISOString(), // バック側でやるもんだけど、勉強用アプリなので
-    };
-    this.post.emit(params);
+    this.presenter.post(this.title, this.body);
   }
 }
