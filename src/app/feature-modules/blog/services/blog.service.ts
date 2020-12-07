@@ -33,6 +33,11 @@ export class BlogService {
   }
 
   // update
+  updateArticle(id: ArticleID, article: ArticleRequest): Observable<Article> {
+    return this.http
+      .post<Article>(`${this.url}/articles/${id}`, article)
+      .pipe(tap((data) => console.log(JSON.stringify(data))));
+  }
 
   // delete
 }
