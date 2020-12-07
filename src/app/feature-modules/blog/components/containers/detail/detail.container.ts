@@ -25,4 +25,8 @@ export class DetailContainerComponent implements OnInit {
   onBack(): void {
     this.router.navigate(['/list']);
   }
+
+  onUpdate(): void {
+    this.router.navigate(['/edit']);
+  }
 }

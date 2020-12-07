@@ -11,6 +11,7 @@ export class DetailPresentationComponent implements OnInit {
   @Input() date!: BlogDate;
   @Input() body!: string;
   @Output() back = new EventEmitter<void>();
+  @Output() update = new EventEmitter<void>();
 
   constructor() {}
 
