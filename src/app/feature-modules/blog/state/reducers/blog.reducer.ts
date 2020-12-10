@@ -50,5 +50,18 @@ export const blogReducer = createReducer<State>(
       ...state,
       error: action.error,
     };
+  }),
+  on(BlogApiActions.postArticleSuccess, (state, action) => {
+    return {
+      article: action.article,
+      ...state,
+      error: '',
+    };
+  }),
+  on(BlogApiActions.postArticleFailure, (state, action) => {
+    return {
+      ...state,
+      error: action.error,
+    };
   })
 );

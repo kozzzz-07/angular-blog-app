@@ -1,3 +1,4 @@
+import { ArticleID } from './../../../models/blog.model';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TodoFacade } from '../../../state/facades/blog.facade';
@@ -9,7 +10,7 @@ import { TodoFacade } from '../../../state/facades/blog.facade';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailContainerComponent implements OnInit {
-  @Input() articleId!: string;
+  @Input() id!: ArticleID;
 
   selectedArticle$ = this.facade.selectedArticle$;
 
@@ -19,14 +20,14 @@ export class DetailContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.facade.setCurrentArticle(this.articleId);
+    this.facade.setCurrentArticle(this.id);
   }
 
   onBack(): void {
     this.router.navigate(['/list']);
   }
 
-  onUpdate(): void {
-    this.router.navigate(['/edit']);
+  onUpdate(id: ArticleID): void {
+    this.router.navigate([id, 'edit']);
   }
 }

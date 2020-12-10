@@ -1,1 +1,19 @@
-<p>update works!</p>
+<div class="operations">
+  <app-button class="button" thema="primary" (click)="back.emit()"
+    >戻る</app-button
+  >
+  <app-button class="button" thema="primary" (click)="onUpdate()"
+    >更新</app-button
+  >
+</div>
+<app-card class="card">
+  <div class="header">
+    <input
+      class="title"
+      type="text"
+      placeholder="タイトルを入力"
+      [(ngModel)]="title"
+    />
+  </div>
+  <textarea class="body" placeholder="本文を入力" [(ngModel)]="body"></textarea>
+</app-card>

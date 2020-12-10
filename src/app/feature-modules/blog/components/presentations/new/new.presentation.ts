@@ -1,4 +1,4 @@
-import { ArticleRequest } from './../../../models/blog.model';
+import { ArticlePostDto } from './../../../models/blog.model';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NewPresenter } from './new.presenter';
 
@@ -10,7 +10,7 @@ import { NewPresenter } from './new.presenter';
 })
 export class NewPresentationComponent implements OnInit {
   @Output() back = new EventEmitter<void>();
-  @Output() post = new EventEmitter<ArticleRequest>();
+  @Output() post = new EventEmitter<ArticlePostDto>();
 
   title = '';
   body = '';
@@ -18,8 +18,8 @@ export class NewPresentationComponent implements OnInit {
   constructor(private readonly presenter: NewPresenter) {}
 
   ngOnInit(): void {
-    this.presenter.post$.subscribe((articleRequest) => {
-      this.post.emit(articleRequest);
+    this.presenter.post$.subscribe((articlePostDto) => {
+      this.post.emit(articlePostDto);
     });
   }
 

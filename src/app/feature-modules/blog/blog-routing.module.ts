@@ -23,12 +23,10 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'edit/:id',
+    path: ':id/edit',
     pathMatch: 'full',
     loadChildren: () =>
-      import('./components/pages/edit/edit.module').then(
-        (m) => m.EditModule
-      ),
+      import('./components/pages/edit/edit.module').then((m) => m.EditModule),
   },
   // TODO:edit
 ];

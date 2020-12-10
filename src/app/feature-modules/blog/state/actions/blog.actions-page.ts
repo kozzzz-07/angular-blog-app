@@ -1,4 +1,4 @@
-import { ArticleRequest } from '../../models/blog.model';
+import { ArticlePostDto, ArticleUpdateDto } from '../../models/blog.model';
 import { createAction, props } from '@ngrx/store';
 
 export const loadArticles = createAction('[Blog Page] Load Articles');
@@ -10,5 +10,10 @@ export const setCurrentArticle = createAction(
 
 export const postArticle = createAction(
   '[Blog Page] Post Article',
-  props<{ articleRequest: ArticleRequest }>()
+  props<{ article: ArticlePostDto }>()
+);
+
+export const updateArticle = createAction(
+  '[Blog Page] Update Article',
+  props<{ article: ArticleUpdateDto }>()
 );

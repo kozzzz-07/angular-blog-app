@@ -7,6 +7,10 @@
   padding-top: 30px;
 }
 
+.button:not(:last-child) {
+  margin-right: 10px;
+}
+
 .card::part(card) {
   margin-top: 20px;
 }
@@ -35,3 +39,4 @@
   margin-top: 2rem;
   color: #666;
 }
+

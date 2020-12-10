@@ -32,7 +32,7 @@ export class BlogEffects {
     this.actions$.pipe(
       ofType(BlogPageActions.postArticle),
       concatMap((action) =>
-        this.blogService.postArticle(action.articleRequest).pipe(
+        this.blogService.postArticle(action.article).pipe(
           map((article) => BlogApiActions.postArticleSuccess({ article })),
           tap(() => this.router.navigate(['list'])),
           catchError((error) => of(BlogApiActions.loadFailure({ error })))
@@ -41,4 +41,19 @@ export class BlogEffects {
     ),
     // { dispatch: false },
   );
+
+  updateArticle$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(BlogPageActions.updateArticle),
+    concatMap((action) =>
+      this.blogService.updateArticle(action.article.id, action.article).pipe(
+        map((article) => BlogApiActions.updateArticleSuccess({ article })),
+        // tap(() => this.router.navigate(['detail'])), // TODO: 詳細に戻った時に、情報が無い
+        tap(() => this.router.navigate(['list'])),
+        catchError((error) => of(BlogApiActions.loadFailure({ error })))
+      )
+    ),
+  ),
+  // { dispatch: false },
+);
 }

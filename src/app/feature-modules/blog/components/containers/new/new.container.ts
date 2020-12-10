@@ -1,5 +1,5 @@
 import { TodoFacade } from './../../../state/facades/blog.facade';
-import { ArticleRequest } from './../../../models/blog.model';
+import { ArticlePostDto } from './../../../models/blog.model';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,7 @@ export class NewContainerComponent implements OnInit {
     this.router.navigate(['/list']);
   }
 
-  onPost(articleRequest: ArticleRequest): void {
-    this.facade.postArticle(articleRequest);
+  onPost(article: ArticlePostDto): void {
+    this.facade.postArticle(article);
   }
 }
