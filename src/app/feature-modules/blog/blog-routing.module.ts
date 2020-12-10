@@ -22,6 +22,12 @@ const routes: Routes = [
         (m) => m.DetailModule
       ),
   },
+  {
+    path: ':id/edit',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./components/pages/edit/edit.module').then((m) => m.EditModule),
+  },
   // TODO:edit
 ];
 

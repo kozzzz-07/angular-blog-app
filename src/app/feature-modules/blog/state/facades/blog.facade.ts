@@ -1,4 +1,4 @@
-import { ArticleID, ArticleRequest } from './../../models/blog.model';
+import { ArticleID, ArticlePostDto, ArticleUpdateDto } from './../../models/blog.model';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromBlogActions from '../actions/blog.actions-page';
@@ -34,8 +34,12 @@ export class TodoFacade {
     this.store.dispatch(fromBlogActions.loadArticles());
   }
 
-  postArticle(articleRequest: ArticleRequest): void {
-    this.store.dispatch(fromBlogActions.postArticle({articleRequest}));
+  postArticle(article: ArticlePostDto): void {
+    this.store.dispatch(fromBlogActions.postArticle({article}));
+  }
+
+  updateArticle(article: ArticleUpdateDto): void {
+    this.store.dispatch(fromBlogActions.updateArticle({article}));
   }
 }
 
