@@ -19,7 +19,7 @@ export class EditPresenter implements OnDestroy {
       title,
       body,
       excerpt,
-      createAt: new Date().toISOString(), // バック側でやるもんだけど、勉強用アプリなので
+      updatedAt: new Date().toISOString(), // バック側でやるもんだけど、勉強用アプリなので
     });
   }
 }

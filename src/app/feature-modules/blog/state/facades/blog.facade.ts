@@ -15,8 +15,8 @@ export class BlogFacade {
     // 降順
     map((articles) =>
       [...articles].sort((a, b) => {
-        const dateA = new Date(a.updateAt || a.createAt);
-        const dateB = new Date(b.updateAt || b.createAt);
+        const dateA = new Date(a.updatedAt || a.createdAt);
+        const dateB = new Date(b.updatedAt || b.createdAt);
         return dateB.getTime() - dateA.getTime();
       })
     )
