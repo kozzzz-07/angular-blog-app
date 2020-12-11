@@ -36,7 +36,9 @@ export class BlogEffects {
           this.blogService.postArticle(action.article).pipe(
             map((article) => BlogApiActions.postArticleSuccess({ article })),
             tap(() => this.router.navigate(['list'])),
-            catchError((error) => of(BlogApiActions.postArticleFailure({ error })))
+            catchError((error) =>
+              of(BlogApiActions.postArticleFailure({ error }))
+            )
           )
         )
       )
@@ -44,26 +46,6 @@ export class BlogEffects {
   );
 
   updateArticle$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(BlogPageActions.deleteArticle),
-        concatMap((action) =>
-          this.blogService
-            .deleteArticle(action.articleId)
-            .pipe(
-              map((article) =>
-                BlogApiActions.deleteArticleSuccess({ article })
-              ),
-              tap(() => this.router.navigate(['list'])),
-              catchError((error) => of(BlogApiActions.updateArticleFailure({ error })))
-            )
-        )
-      )
-    // { dispatch: false },
-  );
-
-
-  deleteArticle$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(BlogPageActions.updateArticle),
@@ -76,7 +58,30 @@ export class BlogEffects {
               ),
               // tap(() => this.router.navigate(['detail'])), // TODO: 詳細に戻った時に、情報が無い
               tap(() => this.router.navigate(['list'])),
-              catchError((error) => of(BlogApiActions.deleteArticleFailure({ error })))
+              catchError((error) =>
+                of(BlogApiActions.updateArticleFailure({ error }))
+              )
+            )
+        )
+      )
+    // { dispatch: false },
+  );
+
+  deleteArticle$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(BlogPageActions.deleteArticle),
+        concatMap((action) =>
+          this.blogService
+            .deleteArticle(action.articleId)
+            .pipe(
+              map((article) =>
+                BlogApiActions.deleteArticleSuccess({ article })
+              ),
+              tap(() => this.router.navigate(['list'])),
+              catchError((error) =>
+                of(BlogApiActions.deleteArticleFailure({ error }))
+              )
             )
         )
       )
