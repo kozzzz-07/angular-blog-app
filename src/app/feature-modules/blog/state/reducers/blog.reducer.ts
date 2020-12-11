@@ -63,5 +63,18 @@ export const blogReducer = createReducer<State>(
       ...state,
       error: action.error,
     };
+  }),
+  on(BlogApiActions.deleteArticleSuccess, (state, action) => {
+    return {
+      article: action.article,
+      ...state,
+      error: '',
+    };
+  }),
+  on(BlogApiActions.deleteArticleFailure, (state, action) => {
+    return {
+      ...state,
+      error: action.error,
+    };
   })
 );

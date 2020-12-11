@@ -32,12 +32,15 @@ export class BlogService {
       .pipe(tap((data) => console.log(JSON.stringify(data))));
   }
 
-  // update
   updateArticle(id: ArticleID, article: ArticlePostDto): Observable<Article> {
     return this.http
       .put<Article>(`${this.url}/articles/${id}`, article)
       .pipe(tap((data) => console.log(JSON.stringify(data))));
   }
 
-  // delete
+  deleteArticle(id: ArticleID): Observable<Article> {
+    return this.http
+      .delete<Article>(`${this.url}/articles/${id}`)
+      .pipe(tap((data) => console.log(JSON.stringify(data))));
+  }
 }

@@ -1,7 +1,7 @@
 import { ArticleID } from './../../../models/blog.model';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TodoFacade } from '../../../state/facades/blog.facade';
+import { BlogFacade } from '../../../state/facades/blog.facade';
 
 @Component({
   selector: 'app-container-detail',
@@ -16,7 +16,7 @@ export class DetailContainerComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private readonly facade: TodoFacade,
+    private readonly facade: BlogFacade,
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +29,13 @@ export class DetailContainerComponent implements OnInit {
 
   onUpdate(id: ArticleID): void {
     this.router.navigate([id, 'edit']);
+  }
+
+  onDelete(id: ArticleID): void {
+    // TODO: ダイアログとかにしたい
+    if (!confirm('消していいですか？')) {
+      return;
+    }
+    this.facade.dleteArticle(id);
   }
 }

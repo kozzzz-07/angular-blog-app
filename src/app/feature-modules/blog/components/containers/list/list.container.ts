@@ -1,7 +1,7 @@
 import { ArticleID } from './../../../models/blog.model';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { TodoFacade } from '../../../state/facades/blog.facade';
+import { BlogFacade } from '../../../state/facades/blog.facade';
 
 @Component({
   selector: 'app-container-list',
@@ -14,7 +14,7 @@ export class ListContainerComponent implements OnInit {
 
   constructor(
     private readonly router: Router, // TODO: pageに移動する?
-    private readonly facade: TodoFacade,
+    private readonly facade: BlogFacade,
   ) {}
 
   ngOnInit(): void {
