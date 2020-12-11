@@ -14,6 +14,7 @@ export class DetailPresentationComponent implements OnInit {
   @Input() body!: string;
   @Output() back = new EventEmitter<void>();
   @Output() update = new EventEmitter<ArticleID>();
+  @Output() delete = new EventEmitter<ArticleID>();
 
   constructor() {}
 

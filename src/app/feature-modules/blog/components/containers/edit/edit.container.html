@@ -1,3 +1,9 @@
 <ng-container *ngIf="selectedArticle$ | async as article">
-  <app-presentation-edit (back)="onBack()" (update)="onUpdate($event)" [id]="article.id" [title]="article.title" [body]="article.body"></app-presentation-edit>
+  <app-presentation-edit
+    (back)="onBack()"
+    (update)="onUpdate($event)"
+    [id]="article.id"
+    [title]="article.title"
+    [body]="article.body"
+  ></app-presentation-edit>
 </ng-container>

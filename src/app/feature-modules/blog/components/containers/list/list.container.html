@@ -1,3 +1,6 @@
 <ng-container *ngIf="articles$ | async as articles">
-  <app-presentation-list [articles]="articles" (readMore)="onReadMore($event)"></app-presentation-list>
+  <app-presentation-list
+    (readMore)="onReadMore($event)"
+    [articles]="articles"
+  ></app-presentation-list>
 </ng-container>

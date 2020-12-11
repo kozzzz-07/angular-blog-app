@@ -28,32 +28,58 @@ export class BlogEffects {
     )
   );
 
-  postArticle$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(BlogPageActions.postArticle),
-      concatMap((action) =>
-        this.blogService.postArticle(action.article).pipe(
-          map((article) => BlogApiActions.postArticleSuccess({ article })),
-          tap(() => this.router.navigate(['list'])),
-          catchError((error) => of(BlogApiActions.loadFailure({ error })))
+  postArticle$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(BlogPageActions.postArticle),
+        concatMap((action) =>
+          this.blogService.postArticle(action.article).pipe(
+            map((article) => BlogApiActions.postArticleSuccess({ article })),
+            tap(() => this.router.navigate(['list'])),
+            catchError((error) => of(BlogApiActions.postArticleFailure({ error })))
+          )
         )
-      ),
-    ),
+      )
     // { dispatch: false },
   );
 
-  updateArticle$ = createEffect(() =>
-  this.actions$.pipe(
-    ofType(BlogPageActions.updateArticle),
-    concatMap((action) =>
-      this.blogService.updateArticle(action.article.id, action.article).pipe(
-        map((article) => BlogApiActions.updateArticleSuccess({ article })),
-        // tap(() => this.router.navigate(['detail'])), // TODO: 詳細に戻った時に、情報が無い
-        tap(() => this.router.navigate(['list'])),
-        catchError((error) => of(BlogApiActions.loadFailure({ error })))
+  updateArticle$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(BlogPageActions.deleteArticle),
+        concatMap((action) =>
+          this.blogService
+            .deleteArticle(action.articleId)
+            .pipe(
+              map((article) =>
+                BlogApiActions.deleteArticleSuccess({ article })
+              ),
+              tap(() => this.router.navigate(['list'])),
+              catchError((error) => of(BlogApiActions.updateArticleFailure({ error })))
+            )
+        )
       )
-    ),
-  ),
-  // { dispatch: false },
-);
+    // { dispatch: false },
+  );
+
+
+  deleteArticle$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(BlogPageActions.updateArticle),
+        concatMap((action) =>
+          this.blogService
+            .updateArticle(action.article.id, action.article)
+            .pipe(
+              map((article) =>
+                BlogApiActions.deleteArticleSuccess({ article })
+              ),
+              // tap(() => this.router.navigate(['detail'])), // TODO: 詳細に戻った時に、情報が無い
+              tap(() => this.router.navigate(['list'])),
+              catchError((error) => of(BlogApiActions.deleteArticleFailure({ error })))
+            )
+        )
+      )
+    // { dispatch: false },
+  );
 }

@@ -1,4 +1,4 @@
-import { TodoFacade } from './../../../state/facades/blog.facade';
+import { BlogFacade } from './../../../state/facades/blog.facade';
 import { ArticlePostDto } from './../../../models/blog.model';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class NewContainerComponent implements OnInit {
   constructor(
     private readonly router: Router,
-    private readonly facade: TodoFacade
+    private readonly facade: BlogFacade
   ) {}
 
   ngOnInit(): void {}

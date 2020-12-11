@@ -32,3 +32,13 @@ export const updateArticleFailure = createAction(
   '[Blog API] Update Article Failure',
   props<{ error: string }>()
 );
+
+export const deleteArticleSuccess = createAction(
+  '[Blog API] Delete Article Success',
+  props<{ article: Article }>()
+);
+
+export const deleteArticleFailure = createAction(
+  '[Blog API] Delete Article Failure',
+  props<{ error: string }>()
+);

@@ -7,7 +7,7 @@ import { getArticles, getCurrentArticle } from '../selectors/blog.selectors';
 import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
-export class TodoFacade {
+export class BlogFacade {
 
   selectedArticle$ = this.store.select(getCurrentArticle);
 
@@ -40,6 +40,10 @@ export class TodoFacade {
 
   updateArticle(article: ArticleUpdateDto): void {
     this.store.dispatch(fromBlogActions.updateArticle({article}));
+  }
+
+  dleteArticle(id: ArticleID): void {
+    this.store.dispatch(fromBlogActions.deleteArticle({articleId: id}));
   }
 }
 

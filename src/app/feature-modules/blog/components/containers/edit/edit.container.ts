@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleID, ArticleUpdateDto } from '../../../models/blog.model';
-import { TodoFacade } from '../../../state/facades/blog.facade';
+import { BlogFacade } from '../../../state/facades/blog.facade';
 
 @Component({
   selector: 'app-container-edit',
@@ -15,7 +15,7 @@ export class EditContainerComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private readonly facade: TodoFacade
+    private readonly facade: BlogFacade
   ) {}
 
   ngOnInit(): void {}
