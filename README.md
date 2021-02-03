@@ -14,6 +14,6 @@
 
 ## キーワード
 
-- レイヤードアーキテクチャ
+- Presentational and Container Components
 - Re-ducks
 - NgRx
